@@ -50,10 +50,7 @@ module.exports = {
     ],
     axios: {
         host: process.env.HOST || 'localhost',
-        prefix:
-            process.env.NODE_ENV !== 'production'
-                ? `/${pkg.name}/`
-                : '/abandoned-in-america/',
+        prefix: `/${pkg.name}/`,
         port: process.env.PORT || 3000,
         https: true
     },
