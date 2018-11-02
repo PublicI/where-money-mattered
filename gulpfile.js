@@ -8,7 +8,7 @@ function bakeStory(slug) {
         .get(
             `https://${process.env.HOST ? process.env.HOST : 'localhost'}:${
                 process.env.PORT ? process.env.PORT : 3000
-            }/abandoned-in-america/api/docs/${slug}.json`
+            }/${pkg.name}/api/docs/${slug}.json`
         )
         .then(result => {
             return new Promise((resolve, reject) => {
@@ -26,16 +26,7 @@ function bakeStory(slug) {
 }
 
 const slugs = [
-    'index',
-    'walled-off',
-    'border-closing-history',
-    'disastrous-recovery',
-    'ballot-box-barriers',
-    'train-off-track',
-    'no-place-to-call-home',
-    'housing-tax-credits',
-    'forgotten-and-failing',
-    'yazoo-education-history'
+    'index'
 ];
 
 gulp.task('bake-stories', () => {
