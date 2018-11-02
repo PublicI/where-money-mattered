@@ -52,7 +52,7 @@ pipeline:
     secrets: [ slack_webhook ]
     template: >
       {{#success build.status}}
-        published https://apps.publicintegrity.org/where-money-won/
+        published https://apps.publicintegrity.org/where-money-mattered/
       {{else}}
-        failed publishing https://apps.publicintegrity.org/where-money-won/
+        failed publishing https://apps.publicintegrity.org/where-money-mattered/
       {{/success}}

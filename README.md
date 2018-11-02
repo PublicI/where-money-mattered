@@ -1,4 +1,4 @@
-# where-money-won
+# where-money-mattered
 
 > 
 
@@ -8,7 +8,7 @@
 # install dependencies
 $ yarn
 
-# serve with hot reload at localhost:3000/where-money-won
+# serve with hot reload at localhost:3000/where-money-mattered
 $ yarn dev
 
 # build for production and launch server

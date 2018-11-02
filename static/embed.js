@@ -1,13 +1,13 @@
 /* eslint-disable */
 
 (function () {
-    var prefix = 'https://apps.publicintegrity.org/where-money-won/';
+    var prefix = 'https://apps.publicintegrity.org/where-money-mattered/';
 /*
     if (document.location.hostname !== 'localhost' &&
         document.location.hostname !== '10.0.2.2' &&
         document.location.hostname !== 'iw-files.s3.amazonaws.com' &&
         document.location.hostname.indexOf('apps.fivetwentyseven.com') === -1) {
-        prefix = '//apps.publicintegrity.org/where-money-won/';
+        prefix = '//apps.publicintegrity.org/where-money-mattered/';
     }
 */
     try {
@@ -20,7 +20,7 @@
         var pymParents = [];
 
         for (var i = 0; i <= 2; i++) {
-            var el = document.getElementById('where-money-won' + (i === 0 ? '' : i));
+            var el = document.getElementById('where-money-mattered' + (i === 0 ? '' : i));
 
             if (typeof el !== 'undefined' && el) {
                 var inited = el.getAttribute('data-init');
@@ -35,7 +35,7 @@
                     view = '';
                 }
 
-                var parentPym = new window.pym.Parent('where-money-won' + (i === 0 ? '' : i), prefix + view, {});
+                var parentPym = new window.pym.Parent('where-money-mattered' + (i === 0 ? '' : i), prefix + view, {});
 
                 // var pymHash = new Hash(parentPym);
 

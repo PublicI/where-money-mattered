@@ -5,7 +5,7 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: 'where-money-won',
+        title: 'Where money mattered',
         meta: [
             { charset: 'utf-8' },
             {
