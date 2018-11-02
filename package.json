@@ -23,6 +23,7 @@
         "fitty": "^2.2.6",
         "fontfaceobserver": "^2.0.13",
         "googleapis": "^34.0.0",
+        "gulp": "^3.9.1",
         "html-entities": "^1.2.1",
         "htmlparser2": "^3.10.0",
         "less": "^3.8.1",
