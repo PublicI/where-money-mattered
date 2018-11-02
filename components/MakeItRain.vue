@@ -1,5 +1,5 @@
 <template>
-    <div style="position:absolute;top:0;left:0;z-index:100;width:100%;height:100%;pointer-events: none;">
+    <div style="position:absolute;top:0;left:0;z-index:100;width:100%;height:100%;pointer-events: none;overflow: hidden">
         <span v-for="bill in bills" class="billsBillsBills" :style="'left:' + bill.randomPosition + '%;top:-150px;-webkit-animation-delay:' + bill.randomTime + 's;-webkit-animation-duration:' + bill.randomSpeed + 's'"><img :src="'img/' + (burning ? 'burning-money.gif' : 'static-money.png')" width="70" height="91" alt="a dollar bill"></span>
     </div>
 </template>

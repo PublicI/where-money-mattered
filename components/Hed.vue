@@ -6,17 +6,17 @@
 
                 <h1 v-if="data.series && data.slug !== data.series.slug">{{data.hed}}</h1>
                 <div v-if="!data.series || data.slug === data.series.slug">
-                    <div style="width:50%;float: left;padding: 4%;position: relative;background-color:#63892c;color:white">
-                        <h1 class="projectHed" style="color: white">Where</h1>
-                        <h1 class="projectHed" style="color: white">money</h1>
-                        <h1 class="projectHed" style="color: white">mattered</h1>
+                    <div class="hedBox green">
+                        <h1 class="projectHed outline" style="color: white">Where</h1>
+                        <h1 class="projectHed outline" style="color: white">money</h1>
+                        <h1 class="projectHed outline" style="color: white">mattered</h1>
 
                         <makeItRain :burning="false" />
                     </div>
-                    <div style="width:50%;float: left;padding: 4%;position: relative;background-color: #d65151;">
-                        <h1 class="projectHed" style="color: white">and </h1>
-                        <h1 class="projectHed" style="color: white">where it</h1>
-                        <h1 class="projectHed" style="color: white">didn't</h1>
+                    <div class="hedBox red">
+                        <h1 class="projectHed outline" style="color: white">and </h1>
+                        <h1 class="projectHed outline" style="color: white">where it</h1>
+                        <h1 class="projectHed outline" style="color: white">didn't</h1>
 
                         <makeItRain :burning="true" />
                     </div>
@@ -76,12 +76,36 @@ export default {
     color: white;
     /* text-shadow: 1px 1px 1px #000000; */
 }
-.outline {
+.hedBox {
+    width:50%;
+    float: left;
+    padding: 4%;
+    position: relative;
+    background-color:#63892c;
+    color:white;
+    border-right:1px solid white;
+    padding-top: 8%;
+    padding-bottom: 8%;
+}
+.green {
+    background-color: #63892c;
+}
+.red {
+    background-color: #d65151;
+}
+.green .outline {
     text-shadow:
-   -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+   -1px -1px 0 #63892c,  
+    1px -1px 0 #63892c,
+    -1px 1px 0 #63892c,
+     1px 1px 0 #63892c;
+}
+.red .outline {
+    text-shadow:
+   -1px -1px 0 #d65151,  
+    1px -1px 0 #d65151,
+    -1px 1px 0 #d65151,
+     1px 1px 0 #d65151;
 }
 .smaller {
     font-size: 80%;
@@ -192,6 +216,14 @@ h4 a, h4 a:visited {
     }
 }
 @media (max-width: 650px) {
+    .hedBox {
+        float: none;
+        width: 100%;
+        padding-top: 14%;
+        padding-bottom: 14%;
+        border-bottom: 1px solid white;
+    }
+
     .floatedHed {
         position: relative;
 

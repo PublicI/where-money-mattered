@@ -46,7 +46,10 @@ export default {
     display: inline-block;
 }
 .nav {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 300;
     /* color: white; */
     /*
     position: absolute;
@@ -55,7 +58,7 @@ export default {
     z-index: 300;*/
     font-size: 16px;
     line-height: 130%;
-    background-color: white;
+    background-color: transparent;
     width: 100%;
 }
 .series {

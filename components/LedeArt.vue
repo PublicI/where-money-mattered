@@ -1,16 +1,17 @@
 <template>
     <div>
         <div class="ledeArt">
+            <!--
             <div class="scrimContainer">
                 <img v-if="data.image.location !== ''" :src="encodeURI((data.series ? '/' + data.series.slug + '/' : '') + data.image.location.replace('img','resized').replace(/\.(jpg|png)$/,'-2880.$1'))" :srcset="encodeURI((data.series ? '/' + data.series.slug + '/' : '') + data.image.location.replace('img','resized').replace(/\.(jpg|png)$/,'-2880.$1')) + '  2880w, ' + (data.series ? '/' + data.series.slug + '/' : '') + encodeURI(data.image.location.replace('img','resized').replace(/\.(jpg|png)$/,'-1440.$1')) + '  1440w, ' + (data.series ? '/' + data.series.slug + '/' : '') + encodeURI(data.image.location.replace('img','resized').replace(/\.(jpg|png)$/,'-720.$1')) + '   720w'" />
 
                 <div class="scrim"></div>
             </div>
-
-            <div class="cutline" v-if="data.image.cutline">{{data.image.cutline}}</div><div class="credit">{{data.image.credit}}</div>
+            -->
 
             <hed :data="data" />
 
+            <div class="cutline" v-if="data.image.cutline">{{data.image.cutline}}</div><div class="credit">{{data.image.credit}}</div>
 
         </div>
 
