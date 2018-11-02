@@ -88,7 +88,7 @@ module.exports = {
                 exclude: /(node_modules)/
             });
 
-            if (ctx.isClient) {
+            if (ctx.isClient && process.env.NODE_ENV !== 'production') {
                 config.module.rules.push({
                     enforce: 'pre',
                     test: /\.(js|vue)$/,
