@@ -10,23 +10,56 @@ pipeline:
   #     - ./node_modules
 
   install:
-    image: node:10.13-alpine
+    image: node:8.12.0-alpine
     commands:
       - yarn config set cache-folder .yarn-cache
-      - yarn install --pure-lockfile
+      - yarn install --pure-lockfile --prod
 
-  generate:
-    image: node:10.13-alpine
+  bake:
+    image: node:8.12.0-alpine
+    environment:
+      - HOST=where-money-mattered.apps.fivetwentyseven.com
+      - PORT=443
+    commands:
+      - yarn bake
+
+  push-data:
+    image: node:8.12.0-alpine
+    secrets: [aws_access_key_id, aws_secret_access_key]
+    commands:
+      - yarn push-data
+    when:
+      branch: [master,preview]
+
+  generate-master:
+    image: node:8.12.0-alpine
+    environment:
+      - HOST=where-money-mattered.apps.fivetwentyseven.com
+      - PORT=443
+      - NODE_ENV=production
     commands:
       - yarn generate
+    when:
+      branch: master
+
+  generate-preview:
+    image: node:8.12.0-alpine
+    environment:
+      - HOST=where-money-mattered.apps.fivetwentyseven.com
+      - PORT=443
+      - NODE_ENV=production
+    commands:
+      - yarn generate
+    when:
+      branch: preview
 
   push:
-    image: node:10.13-alpine
+    image: node:8.12.0-alpine
     secrets: [aws_access_key_id, aws_secret_access_key]
     commands:
       - yarn push
     when:
-      branch: master
+      branch: [master,preview]
 
   # rebuild-cache:
   #   image: plugins/s3-cache:1
@@ -52,7 +85,9 @@ pipeline:
     secrets: [ slack_webhook ]
     template: >
       {{#success build.status}}
-        published https://apps.publicintegrity.org/where-money-mattered/
+        published https://apps.publicintegrity.org/abandoned-in-america/
       {{else}}
-        failed publishing https://apps.publicintegrity.org/where-money-mattered/
+        failed publishing https://apps.publicintegrity.org/abandoned-in-america/
       {{/success}}
+    when:
+      branch: [master,preview]
