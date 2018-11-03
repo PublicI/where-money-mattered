@@ -10,13 +10,13 @@ pipeline:
   #     - ./node_modules
 
   install:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     commands:
       - yarn config set cache-folder .yarn-cache
       - yarn install --pure-lockfile --prod
 
   bake:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     environment:
       - HOST=where-money-mattered.apps.fivetwentyseven.com
       - PORT=443
@@ -24,7 +24,7 @@ pipeline:
       - yarn bake
 
   push-data:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     secrets: [aws_access_key_id, aws_secret_access_key]
     commands:
       - yarn push-data
@@ -32,7 +32,7 @@ pipeline:
       branch: [master,preview]
 
   generate-master:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     environment:
       - HOST=apps.publicintegrity.org
       - PORT=443
@@ -43,7 +43,7 @@ pipeline:
       branch: master
 
   generate-preview:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     environment:
       - HOST=where-money-mattered.apps.fivetwentyseven.com
       - PORT=443
@@ -54,7 +54,7 @@ pipeline:
       branch: preview
 
   push:
-    image: node:8.12.0-alpine
+    image: node:10.13-alpine
     secrets: [aws_access_key_id, aws_secret_access_key]
     commands:
       - yarn push
