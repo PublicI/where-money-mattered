@@ -21,13 +21,13 @@ pipeline:
       - HOST=where-money-mattered.apps.fivetwentyseven.com
       - PORT=443
     commands:
-      - npm bake
+      - npm run bake
 
   push-data:
     image: node:10.13-alpine
     secrets: [aws_access_key_id, aws_secret_access_key]
     commands:
-      - npm push-data
+      - npm run push-data
     when:
       branch: [master,preview]
 
@@ -38,7 +38,7 @@ pipeline:
       - PORT=443
       - NODE_ENV=production
     commands:
-      - npm generate
+      - npm run generate
     when:
       branch: master
 
@@ -49,7 +49,7 @@ pipeline:
       - PORT=443
       - NODE_ENV=production
     commands:
-      - npm generate
+      - npm run generate
     when:
       branch: preview
 
@@ -57,7 +57,7 @@ pipeline:
     image: node:10.13-alpine
     secrets: [aws_access_key_id, aws_secret_access_key]
     commands:
-      - npm push
+      - npm run push
     when:
       branch: [master,preview]
 
