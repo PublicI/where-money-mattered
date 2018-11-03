@@ -13,7 +13,7 @@ export default {
             // https://github.com/sarahlesh/makeItRain/blob/master/makeItRain.js
 
             let bills = [];
-            let maxBills = 50;
+            let maxBills = 20;
 
             for (let i = 0; i < maxBills; i++) {
 
@@ -42,7 +42,7 @@ export default {
 /* https://github.com/sarahlesh/makeItRain/blob/master/makeItRain.css */
 @-webkit-keyframes sway {
     0%{
-        top:-20px;
+        top:-91px;
         -webkit-transform: rotateX(-20deg);
         transform: rotateX(-20deg);
     }

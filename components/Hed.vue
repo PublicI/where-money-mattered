@@ -1,22 +1,26 @@
 <template>
     <div>
         <div :class="'hed' + (data.image.location !== '' ? ' floatedHed' : '')">
-            <div>
+            <div style="height: 100%">
                 <h4 v-if="data.series"><span class="smaller">{{data.part}}</span><br><nuxt-link :to="{ name: 'index' }" class="project">{{data.series.hed.toUpperCase()}}</nuxt-link></h4>
 
                 <h1 v-if="data.series && data.slug !== data.series.slug">{{data.hed}}</h1>
-                <div v-if="!data.series || data.slug === data.series.slug">
+                <div v-if="!data.series || data.slug === data.series.slug" style="height: 100%">
                     <div class="hedBox green">
-                        <h1 class="projectHed outline" style="color: white">Where</h1>
-                        <h1 class="projectHed outline" style="color: white">money</h1>
-                        <h1 class="projectHed outline" style="color: white">mattered</h1>
+                        <div class="projectHedContainer">
+                            <h1 class="projectHed outline" style="color: white">Where</h1>
+                            <h1 class="projectHed outline" style="color: white">money</h1>
+                            <h1 class="projectHed outline" style="color: white">mattered</h1>
+                        </div>
 
                         <makeItRain :burning="false" />
                     </div>
                     <div class="hedBox red">
-                        <h1 class="projectHed outline" style="color: white">and </h1>
-                        <h1 class="projectHed outline" style="color: white">where it</h1>
-                        <h1 class="projectHed outline" style="color: white">didn't</h1>
+                        <div class="projectHedContainer">
+                            <h1 class="projectHed outline" style="color: white">and </h1>
+                            <h1 class="projectHed outline" style="color: white">where it</h1>
+                            <h1 class="projectHed outline" style="color: white">didn't</h1>
+                        </div>
 
                         <makeItRain :burning="true" />
                     </div>
@@ -78,6 +82,7 @@ export default {
 }
 .hedBox {
     width:50%;
+    height: 100%;
     float: left;
     padding: 4%;
     position: relative;
@@ -86,6 +91,10 @@ export default {
     border-right:1px solid white;
     padding-top: 8%;
     padding-bottom: 8%;
+    display: table;
+}
+.hed {
+    height: 100vh;
 }
 .green {
     background-color: #63892c;
@@ -112,6 +121,10 @@ export default {
 }
 .hideOnDesktop {
     display: none;
+}
+.projectHedContainer {
+    display: table-cell;
+    vertical-align: middle;
 }
 .projectHed {
     font-size:12vw;
@@ -219,9 +232,14 @@ h4 a, h4 a:visited {
     .hedBox {
         float: none;
         width: 100%;
+        height: 50%;
         padding-top: 14%;
         padding-bottom: 14%;
         border-bottom: 1px solid white;
+    }
+    .projectHed {
+        font-size: 22vw;
+        line-height: 22vw;
     }
 
     .floatedHed {
@@ -252,7 +270,7 @@ h4 a, h4 a:visited {
         display: block;
     }
     .hed {
-        top: 24%;
+        height: 100vh;
     }
 }
 </style>
