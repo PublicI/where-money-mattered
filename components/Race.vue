@@ -15,7 +15,7 @@
                     <div :style="'background-color:' + (data.cand1_party == 'Democrat' ? 'blue' : 'red') + ';opacity:' + (data.winner !== 'cand1' ? '0.5' : '1')" class="photoCircle">
                         <img :src="'img/portraits/cobbed/' + data.cand1_photo.replace(/ /g,'_').replace('.jpg','.png')"  style="height:110px;width: auto;filter:grayscale(50%) saturate(0%);opacity:0.9;position: absolute;bottom:0;left:15px"/>
 
-                        <img src="img/circle.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
+                        <img src="img/circle-grayer.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
                     </div>
 
                     <div class="wordRectangle">
@@ -34,7 +34,7 @@
                     <div :style="'background-color:' + (data.cand2_party == 'Democrat' ? 'blue' : 'red') + ';opacity:' + (data.winner !== 'cand2' ? '0.5' : '1')" class="photoCircle">
                         <img :src="'img/portraits/cobbed/' + data.cand2_photo.replace(/ /g,'_').replace('.jpg','.png')"  style="height:110px;width: auto;filter:grayscale(50%) saturate(0%);opacity:0.9;position: absolute;bottom:0;left:15px"/>
 
-                        <img src="img/circle.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
+                        <img src="img/circle-grayer.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
                     </div>
 
                     <div class="wordRectangle">
@@ -89,6 +89,9 @@ export default {
     clear: both;
     display: table;
 }
+.candidates {
+    padding-bottom: 15px;
+}
 .candidate {
     width:50%;
     float: left;
@@ -105,7 +108,8 @@ export default {
 }
 .race {
     position: relative;
-    border: 5px solid black;
+    /* border: 5px solid black; */
+    background-color: rgb(250,250,250);
     max-width: 900px;
     margin-right: auto;
     margin-left: auto;
@@ -171,5 +175,10 @@ a {
 }
 .byline a, .byline a:visited {
     color: black;
+}
+@media (max-width: 650px) {
+    .wordRectangle {
+        padding-left: 0;
+    }
 }
 </style>
