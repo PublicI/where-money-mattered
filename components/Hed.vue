@@ -8,18 +8,18 @@
                 <div v-if="!data.series || data.slug === data.series.slug" style="height: 100%">
                     <div class="hedBox mattered">
                         <div class="projectHedContainer">
-                            <h1 class="projectHed outline" style="color: white">Where</h1>
-                            <h1 class="projectHed outline" style="color: white">money</h1>
-                            <h1 class="projectHed outline" style="color: white">mattered</h1>
+                            <h1 class="projectHed outline">Where</h1>
+                            <h1 class="projectHed outline">money</h1>
+                            <h1 class="projectHed outline">mattered</h1>
                         </div>
 
                         <makeItRain :burning="false" />
                     </div>
                     <div class="hedBox nothingMatters">
                         <div class="projectHedContainer">
-                            <h1 class="projectHed outline" style="color: white">and </h1>
-                            <h1 class="projectHed outline" style="color: white">where it</h1>
-                            <h1 class="projectHed outline" style="color: white">didn't</h1>
+                            <h1 class="projectHed outline">and </h1>
+                            <h1 class="projectHed outline">where it</h1>
+                            <h1 class="projectHed outline">didn't</h1>
                         </div>
 
                         <makeItRain :burning="true" />
@@ -97,11 +97,23 @@ export default {
     height: 90vh;
 }
 .mattered {
-    background-color: #63892c;
+    background-image: url('~assets/map.png');
+    background-size: cover;
+    background-position: 10% 20%;
+    background-color: white;
+    /* background-color: #63892c; */
 }
 .nothingMatters {
+    background-image: url('~assets/inverted-map.png');
+    background-size: cover;
+    background-position: 90% 20%;
     background-color: black;
+    /* background-color: black; */
 }
+.nothingMatters .projectHed {
+    color: white; 
+}
+/*
 .mattered .outline {
     text-shadow:
    -1px -1px 0 #63892c,  
@@ -115,7 +127,7 @@ export default {
     1px -1px 0 black,
     -1px 1px 0 black,
      1px 1px 0 black;
-}
+}*/
 .smaller {
     font-size: 80%;
 }
@@ -129,7 +141,7 @@ export default {
 .projectHed {
     text-transform: uppercase;
     font-size:11vw;
-    line-height: 0.85;
+    line-height: 0.90;
     margin: 0;
     padding: 0;
     /* display: inline-block; */

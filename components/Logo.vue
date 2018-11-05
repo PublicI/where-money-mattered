@@ -88,7 +88,7 @@ export default {
 }
 
 .cls-3 {
-    fill: white;
+    fill: black;
 }
 .logo {
     width: 100%;
