@@ -14,6 +14,15 @@ export default {
 </script>
 
 <style>
+h3 {
+    font-family: "balboa",sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    text-shadow: none;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
 .byline {
     font-family: "nimbus-sans",sans-serif;
     line-height: 22px;

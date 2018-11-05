@@ -28,8 +28,8 @@ export default {
     font-family: "nimbus-sans",sans-serif;
     /* font-family: "franklin-gothic-condensed",sans-serif; */
     font-weight: 400;
-    font-size: 19px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 23px;
     color: rgb(50,50,50);
 }
 .copy h3 {

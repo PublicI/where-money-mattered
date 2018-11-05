@@ -2,11 +2,9 @@
     <div class="race">
         <makeItRain :burning="true" />
 
-        <div class="copy centralColumn">
+        <div :class="'raceInner centralColumn' + (expanded ? ' expanded' : ' collapsed')">
 
             <h3 v-if="data.hed">{{data.hed}}</h3>
-
-            <h3>{{data.state}} {{data.chamber === 'S' ? 'Senate' : data.district}}</h3>
 
             <div class="candidates">
 
@@ -27,28 +25,39 @@
 
             </div>
 
-            <!--
-            <div v-html="'<p>' + data.text.replace(/\n\W*\n/g,'</p>\n<p>') + '</p>'" v-if="data.text">
-            </div>
+            <copy :data="{type:'text',text:data.text}" />
 
-            <span class="byline"><span>&mdash; </span><strong v-html="data.reporter"></strong></span>
+            <byline :data="{authors:[data.reporter]}" />
 
-            -->
+            <button class="btn expandButton" @click="expanded = true">Read more &darr;</button>
+
+            <button class="btn closeButton" @click="expanded = false">Read less &uarr;</button>
+
         </div>
 
+        <div class="scrim" @click="expanded = true"></div>
     </div>
 </template>
 
 <script>
 import MakeItRain from '~/components/MakeItRain.vue';
 import Face from '~/components/Face.vue';
+import Copy from '~/components/Copy.vue';
+import Byline from '~/components/Byline.vue';
 
 export default {
+    data() {
+        return {
+            expanded: false
+        };
+    },
     props: ['data'],
     name: 'Races',
     components: {
         makeItRain: MakeItRain,
-        Face
+        Face,
+        Copy,
+        Byline
     }
 };
 </script>
@@ -99,67 +108,71 @@ export default {
 }
 .candidateName {
     line-height: 120%;
+    font-family: "nimbus-sans",sans-serif;
     /* text-align: center; */
     /* font-size: 90%; */
 }
-.copy h3 {
-    margin-bottom: 10px;
-    margin-top: 30px;
+.collapsed .closeButton {
+    display: none;
 }
-.copy p {
-    /*
-    font-family: "ff-tisa-web-pro","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-family: MaisonNeue, Arial, Helvetica, Verdana, sans-serif; */
-    font-family: "nimbus-sans",sans-serif;
-    /* font-family: "franklin-gothic-condensed",sans-serif; */
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 25px;
-    color: rgb(50,50,50);
+.expanded .expandButton {
+    display: none;
 }
-.copy h3 {
-    font-family: "balboa",sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: black;
-    text-shadow: none;
+.raceInner {
+    position: relative;
+    /* padding: 20px; */
+    /* background-color: white; */
+    overflow: hidden;
+    padding-bottom: 30px;
 }
-.lede p {
-    /*
-    line-height: 34px;
-    font-size: 25px;
-    */
-}
-.lede p:first-child:first-letter {
-    color: #E74C3C;
-    float: left;
-    font-family: Georgia,serif;
-    font-size: 56px;
-    line-height: 47px;
-    padding-top: 2px;
-    padding-right: 5px;
-    padding-left: 0;
-}
-a:visited {
-    color: #E74C3C;
-}
-a {
-    text-decoration: none;
-    color: #E74C3C;
-}
-.byline {
-    font-family: "nimbus-sans",sans-serif;
-    line-height: 22px;
-    font-size: 18px;
+.raceInner.collapsed {
+    max-height: 300px;
     padding-bottom: 20px;
-    color: black;
 }
-.byline a, .byline a:visited {
-    color: black;
+.expandButton, .closeButton {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    z-index: 200;
+    background-color: white;
+    border-color: rgb(80,80,80);
 }
+.scrim {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 100;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,fafafa+100&0+0,1+74 */
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(251,251,251,1) 74%, rgba(250,250,250,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(251,251,251,1) 74%,rgba(250,250,250,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(251,251,251,1) 74%,rgba(250,250,250,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#fafafa',GradientType=0 ); /* IE6-9 */
+}
+.expanded .scrim {
+    display: none;
+}
+.closeButton {
+    position: absolute;
+    top: auto;
+    bottom: 0px;
+}
+
 @media (max-width: 650px) {
     .wordRectangle {
         padding-left: 0;
+    }
+
+    .bigNumber {
+        font-size: 25px;
+    }
+
+    .candidateName {
+        font-size: 90%;
     }
 }
 </style>
