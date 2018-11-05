@@ -11,6 +11,8 @@
 
             <sections :data="doc" />
 
+            <races :data="doc" />
+
             <parts :data="doc" />
 
         </div>
@@ -18,6 +20,7 @@
 </template>
 
 <script>
+import Races from '~/components/Races.vue';
 import Hed from '~/components/Hed.vue';
 import Logo from '~/components/Logo.vue';
 import Sections from '~/components/Sections.vue';
@@ -38,7 +41,8 @@ export default {
         Social,
         projectNav: Nav,
         ledeArt: LedeArt,
-        Parts
+        Parts,
+        Races
     },
     async asyncData ({ app, params }) {
         let data = await app.$axios.$get('/api/docs/index.json');

@@ -1,13 +1,16 @@
 <template>
-    <div style="position:absolute;top:0;left:0;z-index:100;width:100%;height:100%;pointer-events: none;overflow: hidden">
+    <div class="billsContainer">
         <span v-for="bill in bills" class="billsBillsBills" :style="'left:' + bill.randomPosition + '%;top:-150px;-webkit-animation-delay:' + bill.randomTime + 's;-webkit-animation-duration:' + bill.randomSpeed + 's'"><img :src="'img/' + (burning ? 'burning-money.gif' : 'static-money.png')" width="70" height="91" alt="a dollar bill"></span>
     </div>
 </template>
 
 <script>
+import inViewport from 'vue-in-viewport-mixin';
+
 export default {
     props: ['data','burning'],
     name: 'Byline',
+    mixins: [ inViewport ],
     computed: {
         bills() {
             // https://github.com/sarahlesh/makeItRain/blob/master/makeItRain.js
@@ -39,6 +42,16 @@ export default {
 </script>
 
 <style>
+.billsContainer {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+    width:100%;
+    height:100%;
+    pointer-events: none;
+    overflow: hidden;
+}
 /* https://github.com/sarahlesh/makeItRain/blob/master/makeItRain.css */
 @-webkit-keyframes sway {
     0%{

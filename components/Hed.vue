@@ -6,7 +6,7 @@
 
                 <h1 v-if="data.series && data.slug !== data.series.slug">{{data.hed}}</h1>
                 <div v-if="!data.series || data.slug === data.series.slug" style="height: 100%">
-                    <div class="hedBox green">
+                    <div class="hedBox mattered">
                         <div class="projectHedContainer">
                             <h1 class="projectHed outline" style="color: white">Where</h1>
                             <h1 class="projectHed outline" style="color: white">money</h1>
@@ -15,7 +15,7 @@
 
                         <makeItRain :burning="false" />
                     </div>
-                    <div class="hedBox red">
+                    <div class="hedBox nothingMatters">
                         <div class="projectHedContainer">
                             <h1 class="projectHed outline" style="color: white">and </h1>
                             <h1 class="projectHed outline" style="color: white">where it</h1>
@@ -94,27 +94,27 @@ export default {
     display: table;
 }
 .hed {
-    height: 100vh;
+    height: 90vh;
 }
-.green {
+.mattered {
     background-color: #63892c;
 }
-.red {
-    background-color: #d65151;
+.nothingMatters {
+    background-color: black;
 }
-.green .outline {
+.mattered .outline {
     text-shadow:
    -1px -1px 0 #63892c,  
     1px -1px 0 #63892c,
     -1px 1px 0 #63892c,
      1px 1px 0 #63892c;
 }
-.red .outline {
+.nothingMatters .outline {
     text-shadow:
-   -1px -1px 0 #d65151,  
-    1px -1px 0 #d65151,
-    -1px 1px 0 #d65151,
-     1px 1px 0 #d65151;
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
 }
 .smaller {
     font-size: 80%;
@@ -127,7 +127,8 @@ export default {
     vertical-align: middle;
 }
 .projectHed {
-    font-size:12vw;
+    text-transform: uppercase;
+    font-size:11vw;
     line-height: 0.85;
     margin: 0;
     padding: 0;
@@ -270,7 +271,7 @@ h4 a, h4 a:visited {
         display: block;
     }
     .hed {
-        height: 100vh;
+        height: 90vh;
     }
 }
 </style>
