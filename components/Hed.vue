@@ -84,27 +84,28 @@ export default {
     width:50%;
     height: 100%;
     float: left;
-    padding: 4%;
+    /* padding: 4%; */
     position: relative;
     background-color:#63892c;
     color:white;
     border-right:1px solid white;
-    padding-top: 8%;
-    padding-bottom: 8%;
+    /* padding-top: 8%;
+    padding-bottom: 8%; */
     display: table;
 }
 .hed {
     height: 90vh;
 }
 .mattered {
-    background-image: url('~assets/map.png');
+    /* background-image: url('~assets/map.png'); */
     background-size: cover;
     background-position: 10% 20%;
     background-color: white;
+    border: 2px solid black;
     /* background-color: #63892c; */
 }
 .nothingMatters {
-    background-image: url('~assets/inverted-map.png');
+    /* background-image: url('~assets/inverted-map.png'); */
     background-size: cover;
     background-position: 90% 20%;
     background-color: black;
@@ -283,7 +284,7 @@ h4 a, h4 a:visited {
         display: block;
     }
     .hed {
-        height: 90vh;
+        height: 100vh;
     }
 }
 </style>

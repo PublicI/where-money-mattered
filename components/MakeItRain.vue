@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="billsContainer">
         <no-ssr>
-            <div class="billsContainer" v-if="inViewport.now">
+            <div v-if="inViewport.now">
                 <span v-for="bill in bills" class="billsBillsBills" :style="'left:' + bill.randomPosition + '%;top:-150px;-webkit-animation-delay:' + bill.randomTime + 's;-webkit-animation-duration:' + bill.randomSpeed + 's'"><img :src="'img/' + (burning ? 'burning-money.gif' : 'static-money.png')" width="70" height="91" alt="a dollar bill"></span>
             </div>
         </no-ssr>

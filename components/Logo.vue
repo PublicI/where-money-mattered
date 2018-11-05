@@ -71,7 +71,7 @@ export default {
 <style scoped>
 .column .cls-1 {
     /* fill: rgba(130,130,130,0.8); */
-    fill: white;
+    fill: black;
     /* transition: 1s; */
 }
 .highlight .cls-1 {
@@ -84,7 +84,7 @@ export default {
 }
 */
 .cls-2 {
-    fill: #63892c;
+    fill: white;
 }
 
 .cls-3 {

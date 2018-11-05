@@ -10,51 +10,30 @@
 
             <div class="candidates">
 
-                <div class="candidate">
+                <div class="candidate" v-for="candidate in data.candidates">
 
-                    <div :style="'background-color:' + (data.cand1_party == 'Democrat' ? 'blue' : 'red') + ';opacity:' + (data.winner !== 'cand1' ? '0.5' : '1')" class="photoCircle">
-                        <img :src="'img/portraits/cobbed/' + data.cand1_photo.replace(/ /g,'_').replace('.jpg','.png')"  style="height:110px;width: auto;filter:grayscale(50%) saturate(0%);opacity:0.9;position: absolute;bottom:0;left:15px"/>
-
-                        <img src="img/circle-grayer.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
-                    </div>
+                    <face :photo="candidate.photo" :color="(candidate.party == 'Democrat' ? 'blue' : 'red')" :opacity="candidate.winner === 'false' ? 0.5 : 1" />
 
                     <div class="wordRectangle">
-                        <h4 class="candidateName">{{data.cand1_name}}</h4>
+                        <h4 class="candidateName">{{candidate.name}}</h4>
 
-                        <div class="bigNumber">{{data.cand1_raised}}</div>
+                        <div class="bigNumber">{{candidate.raised}}</div>
 
                         <div class="smallerLabel">raised</div>
 
                     </div>
 
-                </div>
-
-                <div class="candidate">
-
-                    <div :style="'background-color:' + (data.cand2_party == 'Democrat' ? 'blue' : 'red') + ';opacity:' + (data.winner !== 'cand2' ? '0.5' : '1')" class="photoCircle">
-                        <img :src="'img/portraits/cobbed/' + data.cand2_photo.replace(/ /g,'_').replace('.jpg','.png')"  style="height:110px;width: auto;filter:grayscale(50%) saturate(0%);opacity:0.9;position: absolute;bottom:0;left:15px"/>
-
-                        <img src="img/circle-grayer.png" style="width:100%;height: auto;position: absolute;top:0;left:0"/>
-                    </div>
-
-                    <div class="wordRectangle">
-
-                        <h4 class="candidateName">{{data.cand2_name}}</h4>
-
-                        <div class="bigNumber">{{data.cand2_raised}}</div>
-
-                        <div class="smallerLabel">raised</div>
-
-                    </div>
                 </div>
 
             </div>
 
+            <!--
             <div v-html="'<p>' + data.text.replace(/\n\W*\n/g,'</p>\n<p>') + '</p>'" v-if="data.text">
             </div>
 
             <span class="byline"><span>&mdash; </span><strong v-html="data.reporter"></strong></span>
 
+            -->
         </div>
 
     </div>
@@ -62,12 +41,14 @@
 
 <script>
 import MakeItRain from '~/components/MakeItRain.vue';
+import Face from '~/components/Face.vue';
 
 export default {
     props: ['data'],
     name: 'Races',
     components: {
-        makeItRain: MakeItRain
+        makeItRain: MakeItRain,
+        Face
     }
 };
 </script>
