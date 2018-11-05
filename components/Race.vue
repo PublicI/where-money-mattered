@@ -2,27 +2,30 @@
     <div class="race">
         <makeItRain :burning="true" />
 
-        <div :class="'raceInner centralColumn' + (expanded ? ' expanded' : ' collapsed')">
+        <div :class="'raceInner' + (expanded ? ' expanded' : ' collapsed')">
 
-            <h3 v-if="data.hed">{{data.hed}}</h3>
+            <div class="centralColumn">
 
-            <div class="candidates">
+                <h3 v-if="data.hed">{{data.hed}}</h3>
 
-                <div class="candidate" v-for="candidate in data.candidates">
+                <div class="candidates">
 
-                    <face :photo="candidate.photo" :color="(candidate.party == 'Democrat' ? 'blue' : 'red')" :opacity="candidate.winner === 'false' ? 0.5 : 1" />
+                    <div class="candidate" v-for="candidate in data.candidates">
 
-                    <div class="wordRectangle">
-                        <h4 class="candidateName">{{candidate.name}}</h4>
+                        <face :photo="candidate.photo" :color="(candidate.party == 'Democrat' ? 'blue' : 'red')" :opacity="candidate.winner === 'false' ? 0.5 : 1" />
 
-                        <div class="bigNumber">{{candidate.raised}}</div>
+                        <div class="wordRectangle">
+                            <h4 class="candidateName">{{candidate.name}}</h4>
 
-                        <div class="smallerLabel">raised</div>
+                            <div class="bigNumber">{{candidate.raised}}</div>
+
+                            <div class="smallerLabel">raised</div>
+
+                        </div>
 
                     </div>
 
                 </div>
-
             </div>
 
             <copy :data="{type:'text',text:data.text}" />
