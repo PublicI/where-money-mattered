@@ -13,7 +13,7 @@
                             <h1 class="projectHed outline">mattered</h1>
                         </div>
 
-                        <makeItRain :show="true" :burning="false" />
+                        <makeItRain :show="shown" :burning="false" />
                     </div>
                     <div class="hedBox nothingMatters">
                         <div class="projectHedContainer">

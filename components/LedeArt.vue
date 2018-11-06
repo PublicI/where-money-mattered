@@ -25,7 +25,7 @@ export default {
     components: {
         Hed
     },
-    props: ['data'],
+    props: ['data','shown'],
     name: 'LedeArt'
 };
 </script>
