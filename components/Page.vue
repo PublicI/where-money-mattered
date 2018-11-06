@@ -149,4 +149,14 @@ export default {
     top: 50%;
     -webkit-tap-highlight-color: transparent;
 }
+
+@media (max-width: 600px) {
+    .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0 3px;
+    }
+    .swiper-pagination-bullet {
+        width: 4px;
+        height: 4px;
+    }
+}
 </style>
