@@ -7,6 +7,8 @@
 
             <div class="centralColumn">
 
+                <social :data="{hed:data.hed,slug:data.slug,series:{slug:'where-money-mattered'}}" />
+
                 <h1 class="raceHed" v-if="data.hed">{{data.hed}}</h1>
 
                 <div class="candidates">
@@ -37,6 +39,7 @@
 
             <sections :data="data" />
 
+
             <!--
 
             <button class="btn expandButton" @click="expanded = true">Read more &darr;</button>
@@ -57,6 +60,7 @@ import Face from '~/components/Face.vue';
 import Copy from '~/components/Copy.vue';
 import Byline from '~/components/Byline.vue';
 import Sections from '~/components/Sections.vue';
+import Social from '~/components/Social.vue';
 
 export default {
     data() {
@@ -71,7 +75,8 @@ export default {
         Face,
         Copy,
         Byline,
-        Sections
+        Sections,
+        Social
     }
 };
 </script>
