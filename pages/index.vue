@@ -83,6 +83,9 @@ export default {
             showSwiper: false,
             doc: data,
             swiperOption: {
+                keyboard: {
+                    enabled: true,
+                },
                 history: {
                     key: ''
                 },

@@ -22,6 +22,10 @@
 
                             <div class="smallerLabel">raised</div>
 
+                            <div class="bigNumber">{{candidate.outside_spending}}</div>
+
+                            <div class="smallerLabel">independent spending</div>
+
                         </div>
 
                     </div>
