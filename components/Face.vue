@@ -35,7 +35,7 @@ export default {
     height:110px;
     width: auto;
     /* filter:grayscale(80%) saturate(50%); */
-    opacity:0.9;
+    opacity:1;
     position: absolute;
     bottom:0;
     left:15px;
