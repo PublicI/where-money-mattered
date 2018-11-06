@@ -2,11 +2,12 @@
     <div class="race">
         <makeItRain :burning="true" />
 
-        <div :class="'raceInner' + (expanded ? ' expanded' : ' collapsed')">
+        <div :class="'raceInner'">
+            <!-- ' + (expanded ? ' expanded' : ' collapsed') -->
 
             <div class="centralColumn">
 
-                <h3 v-if="data.hed">{{data.hed}}</h3>
+                <h1 class="raceHed" v-if="data.hed">{{data.hed}}</h1>
 
                 <div class="candidates">
 
@@ -32,9 +33,13 @@
 
             <byline :data="{authors:[data.reporter]}" />
 
+            <!--
+
             <button class="btn expandButton" @click="expanded = true">Read more &darr;</button>
 
             <button class="btn closeButton" @click="expanded = false">Read less &uarr;</button>
+
+            -->
 
         </div>
 
@@ -77,6 +82,12 @@ export default {
     position: relative;
     float: left;
 }
+.raceHed {
+    font-family: "balboa",sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+}
 .candidates:after, .candidate:after {
     content: "";
     clear: both;
@@ -103,11 +114,12 @@ export default {
     position: relative;
     /* border: 5px solid black; */
     background-color: rgb(250,250,250);
-    max-width: 900px;
+    /* max-width: 900px; */
     margin-right: auto;
     margin-left: auto;
-    margin-bottom: 10px;
     padding: 20px;
+    padding-top: 40px;
+    min-height: 100vh;
 }
 .candidateName {
     line-height: 120%;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="race in data.races">
+        <div v-for="race in data.races" class="swiper-slide">
             <race :data="race" />
         </div>
     </div>

@@ -1,5 +1,4 @@
 <template>
-    <div class="nav">
         <logo />
 
         <!--
@@ -15,7 +14,6 @@
         </div>
 
         -->
-    </div>
 </template>
 
 <script>
