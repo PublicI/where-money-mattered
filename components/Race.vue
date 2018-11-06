@@ -33,9 +33,9 @@
                 </div>
             </div>
 
-            <copy :data="{type:'text',text:data.text}" />
+            <byline :data="{authors:[data.reporter],published:true}" />
 
-            <byline :data="{authors:[data.reporter]}" />
+            <sections :data="data" />
 
             <!--
 
@@ -56,6 +56,7 @@ import MakeItRain from '~/components/MakeItRain.vue';
 import Face from '~/components/Face.vue';
 import Copy from '~/components/Copy.vue';
 import Byline from '~/components/Byline.vue';
+import Sections from '~/components/Sections.vue';
 
 export default {
     data() {
@@ -69,7 +70,8 @@ export default {
         makeItRain: MakeItRain,
         Face,
         Copy,
-        Byline
+        Byline,
+        Sections
     }
 };
 </script>
