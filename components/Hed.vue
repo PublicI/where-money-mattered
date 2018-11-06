@@ -22,7 +22,7 @@
                             <h1 class="projectHed outline">didn't</h1>
                         </div>
 
-                        <makeItRain :show="true" :burning="true" />
+                        <makeItRain :show="shown" :burning="true" />
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
 import MakeItRain from '~/components/MakeItRain.vue';
 
 export default {
-    props: ['data'],
+    props: ['data','shown'],
     name: 'Hed',
     data() {
         return {

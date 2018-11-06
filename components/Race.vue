@@ -1,6 +1,6 @@
 <template>
     <div class="race">
-        <makeItRain :burning="true" :show="true" />
+        <makeItRain :burning="true" :show="shown" />
 
         <div :class="'raceInner'">
             <!-- ' + (expanded ? ' expanded' : ' collapsed') -->
@@ -63,7 +63,7 @@ export default {
             expanded: false
         };
     },
-    props: ['data'],
+    props: ['data','shown'],
     name: 'Races',
     components: {
         makeItRain: MakeItRain,
@@ -107,6 +107,8 @@ export default {
 .bigNumber {
     font-family: "balboa",sans-serif;
     font-size: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .smallerLabel {
     font-family: "nimbus-sans",sans-serif;
@@ -127,6 +129,7 @@ export default {
 }
 .candidateName {
     line-height: 120%;
+    margin: 0;
     font-family: "nimbus-sans",sans-serif;
     /* text-align: center; */
     /* font-size: 90%; */

@@ -9,7 +9,7 @@
             </div>
             -->
 
-            <hed :data="data" />
+            <hed :data="data" :shown="shown" />
 
             <div class="cutline" v-if="data.image.cutline">{{data.image.cutline}}</div><div class="credit">{{data.image.credit}}</div>
 
