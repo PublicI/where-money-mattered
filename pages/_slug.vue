@@ -1,6 +1,6 @@
 <template>
     <div v-if="doc">
-        <page :doc="doc" />
+        <page :doc="doc" :slug="slug" />
     </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Page from '~/components/Page.vue';
 
 export default {
-    name: '_slug',
+    name: 'index',
     components: {
         Page
     },
@@ -16,6 +16,7 @@ export default {
         let data = await app.$axios.$get('/api/docs/index.json');
 
         return {
+            slug: params.slug,
             doc: data
         };
     },

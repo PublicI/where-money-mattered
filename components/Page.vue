@@ -4,7 +4,7 @@
 
         <race v-if="swiperOption.initialSlide !== 0 && !showSwiper" :data="doc.races[swiperOption.initialSlide-1]" />
 
-        <div v-if="showSwiper" v-swiper:mySwiper="swiperOption" ref="pageSwiper">
+        <div v-if="showSwiper" v-swiper:mySwiper="swiperOption" ref="pageSwiper" @slideChange="slideChanged">
             <div class="swiper-pagination swiper-pagination-bullets"></div>
             <div class="swiper-wrapper">
                 <div class="swiper-slide" data-history="">
@@ -19,7 +19,7 @@
 
                 </div>
 
-                <div v-for="(race,i) in doc.races" :data-history="race.hed" class="swiper-slide">
+                <div v-for="(race,i) in doc.races" :data-history="race.slug" class="swiper-slide">
 
                     <race :data="race" :shown="(currentIndex-1) === i" />
 
@@ -74,11 +74,10 @@ export default {
         let vm = this;
 
         this.showSwiper = true;
-
-        if (this.swiper) {
-            this.swiper.on('slideChange',() => {
-                vm.currentIndex = vm.swiper.activeIndex;
-            });
+    },
+    methods: {
+        slideChanged() {
+            this.currentIndex = this.swiper.activeIndex;
         }
     },
     data() {
