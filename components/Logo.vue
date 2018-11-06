@@ -91,7 +91,7 @@ export default {
     /* fill: rgba(130,130,130,1); */
 }
 .logo:hover .column .cls-1 {
-    fill: red;
+    fill: #e74c3c;
 }
 .cls-2 {
     fill: white;
@@ -101,7 +101,7 @@ export default {
     fill: black;
 }
 .logo {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
