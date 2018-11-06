@@ -1,6 +1,6 @@
 <template>
     <div class="race">
-        <makeItRain :burning="true" />
+        <makeItRain :burning="true" :show="true" />
 
         <div :class="'raceInner'">
             <!-- ' + (expanded ? ' expanded' : ' collapsed') -->

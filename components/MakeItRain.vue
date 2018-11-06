@@ -1,20 +1,20 @@
 <template>
     <div class="billsContainer">
-        <no-ssr>
-            <div v-if="inViewport.now">
+        <!-- <no-ssr> -->
+            <div v-if="show"> <!-- v-if="inViewport.now" -->
                 <span v-for="bill in bills" class="billsBillsBills" :style="'left:' + bill.randomPosition + '%;top:-150px;-webkit-animation-delay:' + bill.randomTime + 's;-webkit-animation-duration:' + bill.randomSpeed + 's'"><img :src="'img/' + (burning ? 'burning-money.gif' : 'static-money.png')" width="70" height="91" alt="a dollar bill"></span>
             </div>
-        </no-ssr>
+        <!-- </no-ssr> -->
     </div>
 </template>
 
 <script>
-import inViewport from 'vue-in-viewport-mixin';
+// import inViewport from 'vue-in-viewport-mixin';
 
 export default {
-    props: ['data','burning'],
+    props: ['data','burning','show'],
     name: 'Byline',
-    mixins: [ inViewport ],
+    // mixins: [ inViewport ],
     computed: {
         bills() {
             // https://github.com/sarahlesh/makeItRain/blob/master/makeItRain.js

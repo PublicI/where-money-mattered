@@ -1,4 +1,5 @@
 const pkg = require('./package.json');
+const axios = require('axios');
 
 module.exports = {
     /*
@@ -6,7 +7,7 @@ module.exports = {
      */
     head: {
         htmlAttrs: {
-            lang: 'en-US',
+            lang: 'en-US'
         },
         title: 'Where money mattered',
         meta: [
@@ -62,6 +63,14 @@ module.exports = {
         minify: {
             collapseWhitespace: false,
             removeEmptyAttributes: false
+        },
+        routes: function() {
+            let url = 'https://' + (process.env.HOST || 'localhost') + ':' + (process.env.PORT || 3000) + '/' + pkg.name + '/api/docs/index.json'
+            return axios.get(url).then(res => {
+                return res.data.races.map(race => {
+                    return '/' + race.slug;
+                });
+            });
         }
     },
     router: {

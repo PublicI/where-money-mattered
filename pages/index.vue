@@ -5,7 +5,7 @@
                 <div v-swiper:mySwiper="swiperOption">
                     <div class="swiper-pagination swiper-pagination-bullets"></div>
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" data-history="">
 
                             <ledeArt :data="doc" />
 
@@ -17,13 +17,16 @@
 
                         </div>
 
-                        <div v-for="race in doc.races" class="swiper-slide">
+                        <div v-for="race in doc.races" :data-history="race.hed" class="swiper-slide">
 
                             <race :data="race" />
 
                         </div>
 
                     </div>
+
+                    <div class="swiper-button-prev" slot="button-prev"></div>
+                    <div class="swiper-button-next" slot="button-next"></div>
                 </div>
             </div>
 </template>
@@ -55,19 +58,18 @@ export default {
     data () {
       return {
         swiperOption: {
+            history: {
+                key: ''
+            },
             autoHeight: true,
             pagination: {
                 clickable: true,
                 el: '.swiper-pagination'
-            }
-            /*
-            ,
+            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
             }
-            */
-            // some swiper options...
         }
       }
     },
@@ -146,6 +148,7 @@ export default {
 .swiper-pagination-bullet {
     background: black;
     opacity: 0.3;
+    cursor: pointer;
 }
 .swiper-pagination-bullet-active {
     background: black;
@@ -159,7 +162,8 @@ export default {
 }
 
 .swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-    top: 313px;
+    position: fixed;
+    top: 50vh;
     -webkit-tap-highlight-color: transparent;
 }
 </style>

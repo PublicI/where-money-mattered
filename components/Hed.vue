@@ -13,7 +13,7 @@
                             <h1 class="projectHed outline">mattered</h1>
                         </div>
 
-                        <makeItRain :burning="false" />
+                        <makeItRain :show="true" :burning="false" />
                     </div>
                     <div class="hedBox nothingMatters">
                         <div class="projectHedContainer">
@@ -22,7 +22,7 @@
                             <h1 class="projectHed outline">didn't</h1>
                         </div>
 
-                        <makeItRain :burning="true" />
+                        <makeItRain :show="true" :burning="true" />
                     </div>
                 </div>
 
@@ -284,7 +284,7 @@ h4 a, h4 a:visited {
         display: block;
     }
     .hed {
-        height: 100vh;
+        height: 700px;
     }
 }
 </style>

@@ -1,6 +1,18 @@
 <template>
     <a href="https://www.publicintegrity.org/">
-    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 664 143.33">
+   <svg class="smaller logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143.33 143.33">
+      <g>
+        <g class="column">
+          <rect class="cls-1" x="5.57" y="3.78" width="135.28" height="135.3"/>
+          <g>
+            <rect class="cls-2" x="26.41" y="22.15" width="93.61" height="9.57"/>
+            <path class="cls-2" d="M34.55,36.46v8.36l6,1.87v6.55l6.31,2v65.46l9.59-4.64V60.19a2,2,0,0,1,2-2h.69a2,2,0,0,1,2,2V113.8l9.77-4.73V60.19a2,2,0,0,1,2-2h.7a2,2,0,0,1,2,2v48.88l9.77,4.73V60.19a2,2,0,0,1,2-2H88a2,2,0,0,1,2,2v55.87l9.6,4.64V55.25l6.3-2V46.69l6-1.87V36.46Z"/>
+          </g>
+        </g>
+    </g>
+    </svg>
+
+    <svg class="logo larger" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 664 143.33">
       <g>
         <g class="column">
           <rect class="cls-1" x="5.57" y="3.78" width="135.28" height="135.3"/>
@@ -78,11 +90,9 @@ export default {
     fill: rgba(180,180,180,1);
     /* fill: rgba(130,130,130,1); */
 }
-/*
 .logo:hover .column .cls-1 {
-    fill: rgba(130,130,130,1);
+    fill: red;
 }
-*/
 .cls-2 {
     fill: white;
 }
@@ -104,6 +114,11 @@ export default {
     padding: 5px;
     z-index: 350;
 }
+.smaller {
+    display: none;
+    max-width: 40.22px;
+    height: 40.22px;
+}
 a, a:visited {
     padding: 0 !important;
 }
@@ -112,6 +127,14 @@ a, a:visited {
         max-width: 150px;
         padding: 5px;
         height: 40.22px;
+    }
+    .larger {
+        display: none;
+    }
+    .smaller {
+        max-width: 40.22px;
+        height: 40.22px;
+        display: block;
     }
 }
 </style>
