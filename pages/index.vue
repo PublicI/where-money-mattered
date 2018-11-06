@@ -1,34 +1,36 @@
 <template>
-            <div v-if="doc">
-                <logo />
+    <div v-if="doc">
+        <logo />
 
-                <div v-swiper:mySwiper="swiperOption">
-                    <div class="swiper-pagination swiper-pagination-bullets"></div>
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide" data-history="">
+        <race v-if="swiperOption.initialSlide !== 0 && !showSwiper" :data="doc.races[swiperOption.initialSlide-1]" />
 
-                            <ledeArt :data="doc" />
+        <div v-if="showSwiper" v-swiper:mySwiper="swiperOption" ref="pageSwiper">
+            <div class="swiper-pagination swiper-pagination-bullets"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-history="">
 
-                            <social :data="doc" />
+                    <ledeArt :data="doc" />
 
-                            <byline :data="doc" />
+                    <social :data="doc" />
 
-                            <sections :data="doc" />
+                    <byline :data="doc" />
 
-                        </div>
+                    <sections :data="doc" />
 
-                        <div v-for="race in doc.races" :data-history="race.hed" class="swiper-slide">
-
-                            <race :data="race" />
-
-                        </div>
-
-                    </div>
-
-                    <div class="swiper-button-prev" slot="button-prev"></div>
-                    <div class="swiper-button-next" slot="button-next"></div>
                 </div>
+
+                <div v-for="race in doc.races" :data-history="race.hed" class="swiper-slide">
+
+                    <race :data="race" />
+
+                </div>
+
             </div>
+
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -55,29 +57,46 @@ export default {
         Parts,
         Race
     },
-    data () {
-      return {
-        swiperOption: {
-            history: {
-                key: ''
-            },
-            autoHeight: true,
-            pagination: {
-                clickable: true,
-                el: '.swiper-pagination'
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
+    computed: {
+        swiperComponent() {
+            return this.$refs.pageSwiper;
+        },
+        swiper() {
+            return this.swiperComponent.swiper;
         }
-      }
+    },
+    mounted() {
+        this.showSwiper = true;
     },
     async asyncData ({ app, params }) {
         let data = await app.$axios.$get('/api/docs/index.json');
 
+        let initialSlide = 0;
+
+        if (data.races && params.slug) {
+            let slugs = data.races.map(race => race.slug);
+
+            initialSlide = slugs.indexOf(params.slug)+1;
+        }
+
         return {
-            doc: data
+            showSwiper: false,
+            doc: data,
+            swiperOption: {
+                history: {
+                    key: ''
+                },
+                autoHeight: true,
+                pagination: {
+                    clickable: true,
+                    el: '.swiper-pagination'
+                },
+                initialSlide,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                }
+            }
         };
     },
     head () {
