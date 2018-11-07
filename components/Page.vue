@@ -95,9 +95,16 @@ export default {
 
             if (this.currentIndex === 0) {
                 this.$router.push({ name: 'index' });
+                if (window.pSUPERFLY) {
+                    window.pSUPERFLY.virtualPage('/where-money-mattered/', 'Where money mattered and where it didn\'t');
+                }
             }
             else if (this.$ga) {
-                this.$ga.page('/where-money-mattered/' + this.doc.races[this.currentIndex-1].slug);
+                let race = this.doc.races[this.currentIndex-1];
+                if (window.pSUPERFLY) {
+                    window.pSUPERFLY.virtualPage('/where-money-mattered/' + race.slug, race.hed);
+                }
+                this.$ga.page('/where-money-mattered/' + race.slug);
             }
         },
         slideNext(e) {
