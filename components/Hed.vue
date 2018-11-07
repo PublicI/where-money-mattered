@@ -81,6 +81,7 @@ export default {
     /* text-shadow: 1px 1px 1px #000000; */
 }
 .hedBox {
+    display: inline-block;
     width:50%;
     height: 100%;
     float: left;
