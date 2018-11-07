@@ -2,7 +2,7 @@
     <div :style="'opacity:' + opacity" class="photoCircle">
         <div :style="'background-color:' + color" class="background"></div>
 
-        <img :src="'img/portraits/cobbed/' + photo.replace(/ /g,'_').replace('.jpg','.png')" class="photo" />
+        <img :src="'img/portraits/cobbed/' + photo.replace(/ /g,'_').replace('.jpg','.png')" class="photo" :style="(opacity == '1' ? '' : 'filter:grayscale(50%) saturate(20%);')" />
 
         <img src="img/circle-grayer.png" class="circle" />
     </div>
@@ -34,7 +34,6 @@ export default {
 .photo {
     height:110px;
     width: auto;
-    /* filter:grayscale(80%) saturate(50%); */
     opacity:1;
     position: absolute;
     bottom:0;
