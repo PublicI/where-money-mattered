@@ -127,6 +127,7 @@ a, a:visited {
         max-width: 150px;
         padding: 5px;
         height: 40.22px;
+        left: 4px;
     }
     .larger {
         display: none;
