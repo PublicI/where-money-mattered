@@ -37,6 +37,8 @@
                     </div>
 
                 </div>
+
+                <div class="source" v-if="data.source">Source: <span v-html="data.source"></span></div>
             </div>
 
             <social :data="{tweet:'Did money matter in the election for ' + data.hed + '?',slug:data.slug,series:{slug:'where-money-mattered'}}" />
@@ -88,6 +90,12 @@ export default {
 </script>
 
 <style scoped>
+.source {
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(150,150,150);
+    padding-bottom: 15px;
+}
 .mattered {
     margin: 0;
 }
