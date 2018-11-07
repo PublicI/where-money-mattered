@@ -1,5 +1,5 @@
 <template>
-    <div :class="'copy centralColumn ' + data.type">
+    <div :class="'copy centralColumn ' + data.type" style="z-index: 501;position: relative;top:0;left:0;background-color: rgba(250,250,250,0.7)">
 
         <h3 v-if="data.hed">{{data.hed}}</h3>
 

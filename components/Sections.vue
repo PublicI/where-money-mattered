@@ -1,5 +1,5 @@
 <template>
-    <div style="z-index: 501;position: relative;top:0;left:0;background-color: rgba(250,250,250,0.7)">
+    <div>
         <div v-for="section in data.sections">
             <copy :data="section" v-if="section.type === 'text' || section.type === 'lede'" />
 
