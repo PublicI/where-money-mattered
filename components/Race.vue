@@ -7,8 +7,6 @@
 
             <div class="centralColumn">
 
-                <social :data="{hed:data.hed,slug:data.slug,series:{slug:'where-money-mattered'}}" />
-
                 <h1 class="raceHed" v-if="data.hed">{{data.hed}}</h1>
 
                 <div class="candidates">
@@ -34,6 +32,8 @@
 
                 </div>
             </div>
+
+            <social :data="{tweet:'Did money matter in the election for ' + data.hed + '?',slug:data.slug,series:{slug:'where-money-mattered'}}" />
 
             <byline :data="{authors:[data.reporter],published:true}" />
 

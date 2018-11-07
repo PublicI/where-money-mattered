@@ -31,7 +31,7 @@ export default {
 .social {
     font-size: 12px;
     line-height: 12px;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     /* padding-top: 5px; */
     float: right;
     padding-right: 10px;
