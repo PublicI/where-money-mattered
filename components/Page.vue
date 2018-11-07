@@ -9,17 +9,21 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide" data-history="">
 
-                    <ledeArt :data="doc" :shown="currentIndex === 0" />
+                    <div v-if="currentIndex === 0 || $route.path == '/' || $route.path == ''">
 
-                    <social :data="doc" />
+                        <ledeArt :data="doc" :shown="currentIndex === 0" />
 
-                    <byline :data="doc" />
+                        <social :data="doc" />
 
-                    <sections :data="doc" />
+                        <byline :data="doc" />
 
-                    <div class="centralColumn" style="text-align: right;">
-                        <h4><div @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;">Next ➡️</div></h4>
-                        <br>
+                        <sections :data="doc" />
+
+                        <div class="centralColumn" style="text-align: right;">
+                            <h4><div @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;">Next ➡️</div></h4>
+                            <br>
+                        </div>
+
                     </div>
                 </div>
 
