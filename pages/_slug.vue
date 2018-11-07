@@ -21,6 +21,11 @@ export default {
         };
     },
     head () {
+        let race = {};
+        if (this.doc.races) {
+            race = this.doc.races.find(race => race.slug === this.$route.params.slug);
+        }
+
         return {
             title: this.doc.hed + ' | Center for Public Integrity',
             meta: [
@@ -39,11 +44,11 @@ export default {
                 },
                 {
                     name: 'twitter:image',
-                    content: `https://apps.publicintegrity.org/${this.doc.slug}/${encodeURI(this.doc.featured.location.replace('img', 'resized').replace(/\.(jpg|png)$/, '-1440.$1'))}`
+                    content: `https://apps.publicintegrity.org/${this.doc.slug}/${encodeURI(this.doc.featured.location)}`
                 },
                 {
                     property: 'og:image',
-                    content: `https://apps.publicintegrity.org/${this.doc.slug}/${encodeURI(this.doc.featured.location.replace('img', 'resized').replace(/\.(jpg|png)$/, '-1440.$1'))}`
+                    content: `https://apps.publicintegrity.org/${this.doc.slug}/${encodeURI(this.doc.featured.location)}`
                 },
                 {
                     property: 'article:modified_time',
@@ -55,7 +60,7 @@ export default {
                 },
                 {
                     property: 'og:title',
-                    content: this.doc.hed 
+                    content: this.doc.hed + ': ' + race.hed 
                 },
                 {
                     name: 'title',
@@ -67,7 +72,7 @@ export default {
                 },
                 {
                     property: 'og:url',
-                    content: `https://apps.publicintegrity.org/${this.doc.slug}/`
+                    content: `https://apps.publicintegrity.org/${this.doc.slug}/${race.slug}/`
                 }]
         };
     }
