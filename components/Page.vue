@@ -81,7 +81,9 @@ export default {
     mounted() {
         let vm = this;
 
-        this.showSwiper = true;
+        this.$nextTick(() => {
+            this.showSwiper = true;
+        });
     },
     methods: {
         slideChanged() {
