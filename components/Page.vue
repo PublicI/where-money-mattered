@@ -96,6 +96,9 @@ export default {
             if (this.currentIndex === 0) {
                 this.$router.push({ name: 'index' });
             }
+            else if (this.$ga) {
+                this.$ga.page('/where-money-mattered/' + this.doc.races[this.currentIndex-1].slug);
+            }
         },
         slideNext(e) {
             if (this.swiper) {
