@@ -158,5 +158,21 @@ export default {
         width: 4px;
         height: 4px;
     }
+
+    .swiper-button-prev, .swiper-button-next {
+        width: 13.5px;
+        height: 22px;
+        margin-top: -20px;
+        z-index: 501;
+        cursor: pointer;
+        background-color: rgb(250,250,250);
+        background-size: 13.5px 22px;
+    }
+
+    .swiper-button-next, .swiper-container-rtl .swiper-button-prev, .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+        position: absolute;
+        top: 30px;
+    }
+
 }
 </style>

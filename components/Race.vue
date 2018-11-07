@@ -203,5 +203,11 @@ export default {
     .candidateName {
         font-size: 90%;
     }
+
+    .race {
+        padding: 0;
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
 }
 </style>
