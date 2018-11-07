@@ -115,10 +115,11 @@ export default {
     display: table;
 }
 .candidates {
-    padding-top: 15px;
+    padding-top: 5px;
     padding-bottom: 15px;
 }
 .candidate {
+    padding-top: 10px;
     width:50%;
     float: left;
 }
