@@ -20,7 +20,7 @@
                         <sections :data="doc" />
 
                         <div class="centralColumn" style="text-align: right;">
-                            <h4><div @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;">Next ➡️</div></h4>
+                            <h4><div @click="slideNext" style="background-color:rgb(220,220,220);border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;">Show me ➡️</div></h4>
                             <br>
                         </div>
 
@@ -32,7 +32,7 @@
                     <race :data="race" :shown="(currentIndex-1) === i" />
 
                     <div class="centralColumn" style="text-align: right;">
-                        <h4><div disabled="true" @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;"  v-if="i+1 < doc.races.length">Next ➡️</div><div style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block"  v-if="i+1 == doc.races.length">Complete ✅</div></h4>
+                        <h4><div disabled="true" @click="slideNext" style="background-color:rgb(220,220,220);border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;"  v-if="i+1 < doc.races.length">Next ➡️</div><div style="background-color:rgb(220,220,220);border-radius:3px;color:black;padding: 10px;display: inline-block"  v-if="i+1 == doc.races.length"><a href="http://donate.publicintegrity.org">✅ Finished! Support us?</a></div></h4>
                         <br>
                     </div>
                 </div>
