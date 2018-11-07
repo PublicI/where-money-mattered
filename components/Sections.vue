@@ -3,7 +3,7 @@
         <div v-for="section in data.sections">
             <copy :data="section" v-if="section.type === 'text' || section.type === 'lede'" />
 
-            <photo :base="'/' + data.series.slug + '/'" :data="section" v-if="section.type === 'image'" />
+            <photo :base="'/where-money-mattered/'" :data="section" v-if="section.type === 'image'" />
 
             <snippet :data="section" v-if="section.type === 'snippet'" />
 
