@@ -7,7 +7,7 @@
         <div v-if="showSwiper" v-swiper:mySwiper="swiperOption" ref="pageSwiper" @slideChange="slideChanged">
             <div class="swiper-pagination swiper-pagination-bullets"></div>
             <div class="swiper-wrapper">
-                <div class="swiper-slide" data-history="/">
+                <div class="swiper-slide" data-history="">
 
                     <ledeArt :data="doc" :shown="currentIndex === 0" />
 
@@ -86,6 +86,10 @@ export default {
     methods: {
         slideChanged() {
             this.currentIndex = this.swiper.activeIndex;
+
+            if (this.currentIndex === 0) {
+                this.$router.push({ name: 'index' });
+            }
         },
         slideNext(e) {
             if (this.swiper) {
