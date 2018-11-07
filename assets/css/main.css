@@ -13,7 +13,7 @@ body {
     margin-right: auto;
 }
 
-.source a, a:visited {
+.source a, .source a:visited {
     color: black !important;
 }
 
