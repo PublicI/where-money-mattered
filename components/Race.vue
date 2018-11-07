@@ -93,7 +93,7 @@ export default {
 }
 .wordRectangle {
     float: left;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 .photoCircle {
     width:115px;
@@ -126,7 +126,7 @@ export default {
     font-family: "balboa",sans-serif;
     font-size: 30px;
     padding-top: 5px;
-    padding-bottom: 5px;
+    padding-bottom: 0;
 }
 .smallerLabel {
     font-family: "nimbus-sans",sans-serif;

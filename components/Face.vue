@@ -30,6 +30,7 @@ export default {
     overflow:hidden;
     position: relative;
     float: left;
+    left: -3px;
 }
 .photo {
     height:110px;
