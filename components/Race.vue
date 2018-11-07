@@ -1,6 +1,6 @@
 <template>
     <div class="race">
-        <makeItRain :burning="true" :show="shown" />
+        <makeItRain v-if="data.mattered && data.mattered.trim() !== ''" :burning="data.mattered !== 'true'" :show="shown" />
 
         <div :class="'raceInner'">
             <!-- ' + (expanded ? ' expanded' : ' collapsed') -->
