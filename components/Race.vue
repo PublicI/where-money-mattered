@@ -143,7 +143,7 @@ export default {
     margin-left: auto;
     padding: 20px;
     padding-top: 40px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
 }
 .candidateName {
     line-height: 120%;
@@ -163,11 +163,11 @@ export default {
     /* padding: 20px; */
     /* background-color: white; */
     overflow: hidden;
-    padding-bottom: 30px;
+    /* padding-bottom: 20px; */
 }
 .raceInner.collapsed {
     max-height: 300px;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
 }
 .expandButton, .closeButton {
     position: absolute;
@@ -185,7 +185,7 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 100px;
+    height: 50px;
     z-index: 100;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,fafafa+100&0+0,1+74 */
     background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(251,251,251,1) 74%, rgba(250,250,250,1) 100%); /* FF3.6-15 */
@@ -218,7 +218,7 @@ export default {
     .race {
         padding: 0;
         padding-top: 40px;
-        padding-bottom: 20px;
+        /* padding-bottom: 20px; */
     }
 }
 </style>

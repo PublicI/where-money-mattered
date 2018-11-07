@@ -7,7 +7,7 @@
         <div v-if="showSwiper" v-swiper:mySwiper="swiperOption" ref="pageSwiper" @slideChange="slideChanged">
             <div class="swiper-pagination swiper-pagination-bullets"></div>
             <div class="swiper-wrapper">
-                <div class="swiper-slide" data-history="">
+                <div class="swiper-slide" data-history="/">
 
                     <ledeArt :data="doc" :shown="currentIndex === 0" />
 
@@ -17,12 +17,20 @@
 
                     <sections :data="doc" />
 
+                    <div class="centralColumn" style="text-align: right;">
+                        <h4><div @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;">Next ➡️</div></h4>
+                        <br>
+                    </div>
                 </div>
 
                 <div v-for="(race,i) in doc.races" :data-history="race.slug" class="swiper-slide">
 
                     <race :data="race" :shown="(currentIndex-1) === i" />
 
+                    <div class="centralColumn" style="text-align: right;">
+                        <h4><div disabled="true" @click="slideNext" style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block;cursor:pointer;"  v-if="i+1 < doc.races.length">Next ➡️</div><div style="border:1px solid black;border-radius:3px;color:black;padding: 10px;display: inline-block"  v-if="i+1 == doc.races.length">Complete ✅</div></h4>
+                        <br>
+                    </div>
                 </div>
 
             </div>
@@ -78,6 +86,14 @@ export default {
     methods: {
         slideChanged() {
             this.currentIndex = this.swiper.activeIndex;
+        },
+        slideNext(e) {
+            if (this.swiper) {
+                this.swiper.slideNext();
+                if (window && window.scrollTo) {
+                    window.scrollTo(0,0);
+                }
+            }
         }
     },
     data() {
