@@ -15,7 +15,7 @@
 
                     <div class="candidate" v-for="candidate in data.candidates">
 
-                        <face :photo="candidate.photo" :color="(candidate.party == 'Democrat' ? 'blue' : 'red')" :opacity="candidate.winner === 'false' ? 0.5 : 1" />
+                        <face :photo="candidate.photo" :color="(candidate.party == '' ? 'rgb(200,200,200' : (candidate.party == 'Democrat' ? 'blue' : 'red'))" :opacity="candidate.winner === 'false' ? 0.5 : 1" />
 
                         <div class="wordRectangle">
                             <h4 class="candidateName">{{candidate.name}}</h4>
@@ -24,9 +24,9 @@
 
                             <div class="smallerLabel">raised</div>
 
-                            <div class="bigNumber">{{candidate.outside_spending}}</div>
+                            <div class="bigNumber" v-if="candidate.outside_spending">{{candidate.outside_spending}}</div>
 
-                            <div class="smallerLabel">independent spending</div>
+                            <div class="smallerLabel" v-if="candidate.outside_spending">independent spending</div>
 
                         </div>
 
