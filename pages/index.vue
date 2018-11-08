@@ -22,7 +22,7 @@ export default {
     },
     head () {
         return {
-            title: this.doc.hed + ' | Center for Public Integrity',
+            title: (this.doc.title || this.doc.hed) + ' | Center for Public Integrity',
             meta: [
                 {
                     name: 'twitter:card',
@@ -55,11 +55,11 @@ export default {
                 },
                 {
                     property: 'og:title',
-                    content: this.doc.hed 
+                    content: (this.doc.title || this.doc.hed)
                 },
                 {
                     name: 'title',
-                    content: this.doc.hed
+                    content: (this.doc.title || this.doc.hed)
                 },
                 {
                     property: 'og:description',
